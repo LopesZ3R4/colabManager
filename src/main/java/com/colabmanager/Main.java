@@ -10,6 +10,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @SpringBootApplication(scanBasePackages={"com.*"})
 @EntityScan( basePackages = {"com.*"} )
@@ -42,27 +43,50 @@ public class Main {
 //        System.out.println("Data de Nascimento: " + savedEmployee.getDtnascimento());
 //        System.out.println("Data de Admissão: " + savedEmployee.getDtadmissao());
 //    }
+//public static void main(String[] args) {
+//    ApplicationContext context = SpringApplication.run(Main.class, args);
+//
+//    // Injete o seu EmployeeController aqui
+//    EmployeeController employeeController = context.getBean(EmployeeController.class);
+//
+//    // Obter o funcionário pelo ID (no caso, ID 1)
+//    Long employeeId = 1L;
+//    Employee retrievedEmployee = employeeController.getEmployeeById(employeeId);
+//
+//    if (retrievedEmployee != null) {
+//        // Exibir os detalhes do funcionário
+//        System.out.println("Detalhes do Funcionário:");
+//        System.out.println("ID: " + retrievedEmployee.getId());
+//        System.out.println("Nome: " + retrievedEmployee.getName());
+//        System.out.println("Função: " + retrievedEmployee.getCodfuncao());
+//        System.out.println("Salário: " + retrievedEmployee.getSalary());
+//        System.out.println("Data de Nascimento: " + retrievedEmployee.getDtnascimento());
+//        System.out.println("Data de Admissão: " + retrievedEmployee.getDtadmissao());
+//    } else {
+//        System.out.println("Funcionário com ID " + employeeId + " não encontrado.");
+//    }
+//}
 public static void main(String[] args) {
     ApplicationContext context = SpringApplication.run(Main.class, args);
 
     // Injete o seu EmployeeController aqui
     EmployeeController employeeController = context.getBean(EmployeeController.class);
 
-    // Obter o funcionário pelo ID (no caso, ID 1)
-    Long employeeId = 1L;
-    Employee retrievedEmployee = employeeController.getEmployeeById(employeeId);
+    // Obter a lista de Funcionarios
+    List<Employee> retrievedEmployeeList = employeeController.getEmployeeList();
 
-    if (retrievedEmployee != null) {
-        // Exibir os detalhes do funcionário
-        System.out.println("Detalhes do Funcionário:");
-        System.out.println("ID: " + retrievedEmployee.getId());
-        System.out.println("Nome: " + retrievedEmployee.getName());
-        System.out.println("Função: " + retrievedEmployee.getCodfuncao());
-        System.out.println("Salário: " + retrievedEmployee.getSalary());
-        System.out.println("Data de Nascimento: " + retrievedEmployee.getDtnascimento());
-        System.out.println("Data de Admissão: " + retrievedEmployee.getDtadmissao());
+    if (retrievedEmployeeList != null && !retrievedEmployeeList.isEmpty()) {
+        for (Employee employee : retrievedEmployeeList) {
+            System.out.println("ID: " + employee.getId());
+            System.out.println("Nome: " + employee.getName());
+            System.out.println("Função: " + employee.getCodfuncao());
+            System.out.println("Salário: " + employee.getSalary());
+            System.out.println("Data de Nascimento: " + employee.getDtnascimento());
+            System.out.println("Data de Admissão: " + employee.getDtadmissao());
+            System.out.println();
+        }
     } else {
-        System.out.println("Funcionário com ID " + employeeId + " não encontrado.");
+        System.out.println("Não há Funcionários cadastrados!");
     }
 }
 }
