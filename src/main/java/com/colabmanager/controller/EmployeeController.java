@@ -6,6 +6,7 @@ import com.colabmanager.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -28,6 +29,9 @@ public class EmployeeController {
     public Employee getEmployeeById(@PathVariable Long id) {
         Optional<Employee> employeeOptional = employeeRepository.findById(id);
         return employeeOptional.orElse(null); // Retorna null se não for encontrado
+    }
+    public List<Employee> getEmployeeList() {
+        return employeeRepository.findAll();
     }
 }
 

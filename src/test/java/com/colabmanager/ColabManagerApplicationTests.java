@@ -1,10 +1,10 @@
-package com.example.projectmanager2;
+package com.colabmanager;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ProjectManager2ApplicationTests {
+class ColabManagerApplicationTests {
 
     @Test
     void contextLoads() {
