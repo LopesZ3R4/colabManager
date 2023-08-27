@@ -4,6 +4,7 @@ package com.colabmanager.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "employee") // Adicionei a anotação @Table com o nome da tabela no banco de dados
@@ -74,5 +75,16 @@ public class Employee {
 
     public void setDtadmissao(LocalDate dtadmissao) {
         this.dtadmissao = dtadmissao;
+    }
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", codfuncao=" + codfuncao +
+                ", salary=" + salary +
+                ", dtnascimento=" + dtnascimento +
+                ", dtadmissao=" + dtadmissao +
+                '}';
     }
 }
