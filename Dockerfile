@@ -10,3 +10,8 @@ FROM openjdk:17-jdk-alpine
 #
 ## Comando para iniciar o aplicativo Spring Boot
 #ENTRYPOINT ["java","-jar","/app.jar"]
+FROM postgres
+
+# Defina as variáveis de ambiente LANG e LC_*
+ENV LANG pt_BR.utf8
+ENV LC_ALL pt_BR.utf8
