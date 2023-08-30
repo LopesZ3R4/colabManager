@@ -68,25 +68,25 @@ public class Main {
 //}
 public static void main(String[] args) {
     ApplicationContext context = SpringApplication.run(Main.class, args);
-
-    // Injete o seu EmployeeController aqui
-    EmployeeController employeeController = context.getBean(EmployeeController.class);
-
-    // Obter a lista de Funcionarios
-    List<Employee> retrievedEmployeeList = employeeController.getEmployeeList();
-
-    if (retrievedEmployeeList != null && !retrievedEmployeeList.isEmpty()) {
-        for (Employee employee : retrievedEmployeeList) {
-            System.out.println("ID: " + employee.getId());
-            System.out.println("Nome: " + employee.getName());
-            System.out.println("Função: " + employee.getCodfuncao());
-            System.out.println("Salário: " + employee.getSalary());
-            System.out.println("Data de Nascimento: " + employee.getDtnascimento());
-            System.out.println("Data de Admissão: " + employee.getDtadmissao());
-            System.out.println();
-        }
-    } else {
-        System.out.println("Não há Funcionários cadastrados!");
-    }
+//
+//    // Injete o seu EmployeeController aqui
+//    EmployeeController employeeController = context.getBean(EmployeeController.class);
+//
+//    // Obter a lista de Funcionarios
+//    List<Employee> retrievedEmployeeList = employeeController.getEmployeeList();
+//
+//    if (retrievedEmployeeList != null && !retrievedEmployeeList.isEmpty()) {
+//        for (Employee employee : retrievedEmployeeList) {
+//            System.out.println("ID: " + employee.getId());
+//            System.out.println("Nome: " + employee.getName());
+//            System.out.println("Função: " + employee.getCodfuncao());
+//            System.out.println("Salário: " + employee.getSalary());
+//            System.out.println("Data de Nascimento: " + employee.getDtnascimento());
+//            System.out.println("Data de Admissão: " + employee.getDtadmissao());
+//            System.out.println();
+//        }
+//    } else {
+//        System.out.println("Não há Funcionários cadastrados!");
+//    }
 }
 }
